@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java, 互联网" />
+  <meta name="keywords" content="SimpleDateFormat," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="少壮不努力，长大写代码!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小鱼的博客">
-<meta property="og:url" content="http://www.gaowm.com/index.html">
+<meta name="description" content="SimpleDateFormat在进行日期格式转换时用的很多，但是 DateFormat 和 SimpleDateFormat 类不都是线程安全的，在多线程环境下调用 format() 和 parse() 方法应该使用同步代码来避免问题  12345678910111213141516 * &amp;lt;p&amp;">
+<meta name="keywords" content="SimpleDateFormat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SimpleDateFormat的线程安全问题">
+<meta property="og:url" content="http://www.gaowm.com/2017/11/26/SimpleDateFormat的线程安全问题/index.html">
 <meta property="og:site_name" content="小鱼的博客">
-<meta property="og:description" content="少壮不努力，长大写代码!">
+<meta property="og:description" content="SimpleDateFormat在进行日期格式转换时用的很多，但是 DateFormat 和 SimpleDateFormat 类不都是线程安全的，在多线程环境下调用 format() 和 parse() 方法应该使用同步代码来避免问题  12345678910111213141516 * &amp;lt;p&amp;gt; * Date formats are not synchronized. * It i">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-26T12:29:21.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鱼的博客">
-<meta name="twitter:description" content="少壮不努力，长大写代码!">
+<meta name="twitter:title" content="SimpleDateFormat的线程安全问题">
+<meta name="twitter:description" content="SimpleDateFormat在进行日期格式转换时用的很多，但是 DateFormat 和 SimpleDateFormat 类不都是线程安全的，在多线程环境下调用 format() 和 parse() 方法应该使用同步代码来避免问题  12345678910111213141516 * &amp;lt;p&amp;gt; * Date formats are not synchronized. * It i">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.gaowm.com/"/>
+  <link rel="canonical" href="http://www.gaowm.com/2017/11/26/SimpleDateFormat的线程安全问题/"/>
 
 
 
 
 
-  <title>小鱼的博客</title>
+  <title>SimpleDateFormat的线程安全问题 | 小鱼的博客</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/26/SimpleDateFormat的线程安全问题/" itemprop="url">SimpleDateFormat的线程安全问题</a></h2>
+          <h2 class="post-title" itemprop="name headline">SimpleDateFormat的线程安全问题</h2>
         
 
         <div class="post-meta">
@@ -353,9 +352,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>SimpleDateFormat在进行日期格式转换时用的很多，但是 DateFormat 和 SimpleDateFormat 类不都是线程安全的，在多线程环境下调用 format() 和 parse() 方法应该使用同步代码来避免问题</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> * &lt;p&gt;</span><br><span class="line"> * Date formats are not <span class="keyword">synchronized</span>.</span><br><span class="line"> * It is recommended to create separate format instances <span class="keyword">for</span> each thread.</span><br><span class="line"> * If multiple threads access a format concurrently, it must be <span class="keyword">synchronized</span></span><br><span class="line"> * externally.</span><br><span class="line"> *</span><br><span class="line"> * @see          &lt;a href="http://java.sun.com/docs/books/tutorial/i18n/format/simpleDateFormat.html"&gt;Java Tutorial&lt;/a&gt;</span><br><span class="line"> * <span class="meta">@see</span>          java.util.Calendar</span><br><span class="line"> * <span class="meta">@see</span>          java.util.TimeZone</span><br><span class="line"> * <span class="meta">@see</span>          DateFormat</span><br><span class="line"> * <span class="meta">@see</span>          DateFormatSymbols</span><br><span class="line"> * <span class="meta">@author</span>       Mark Davis, Chen-Lieh Huang, Alan Liu</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleDateFormat</span> <span class="keyword">extends</span> <span class="title">DateFormat</span> </span>&#123;</span><br><span class="line">...................</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
@@ -370,8 +367,6 @@
 <li>使用common-lang中的api中的FastDateFormat<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CountDownLatch;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.time.FastDateFormat;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试时间处理类的线程安全问题</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> gaowenming</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleDateFormatTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String PATTEN = <span class="string">"yyyy-MM-dd hh:mm:ss"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(PATTEN);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJDKSimpleDateFormat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//jdk的实现方式，会有线程安全的问题</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(sdf.parseObject(<span class="string">"2013-05-24 06:02:20"</span>));</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCommonLang</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//CommonLang第三方jar包实现</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        FastDateFormat fdf = FastDateFormat.getInstance(PATTEN);</span><br><span class="line">                        System.out.println(fdf.format(<span class="keyword">new</span> Date()));</span><br><span class="line">                        Date date = fdf.parse(<span class="string">"2013-05-24 06:02:20"</span>);</span><br><span class="line">                        System.out.println(date);</span><br><span class="line">                        countDownLatch.countDown();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//等待100个线程都执行完</span></span><br><span class="line">            countDownLatch.await();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -386,14 +381,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/SimpleDateFormat/" rel="tag"># SimpleDateFormat</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -403,10 +404,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -414,6 +416,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -434,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -511,6 +526,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">1.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -651,6 +682,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
