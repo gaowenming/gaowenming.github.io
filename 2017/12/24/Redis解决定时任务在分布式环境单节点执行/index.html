@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Log4j," />
+  <meta name="keywords" content="Redis," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前天下午，运维突然在微信群里说系统流量下跌了，报警邮件也马上来了，都是api接口的time out，查看各种监控工具，zabbix，oneapm，es集群，除了发现流量有下跌，没有别的异常情况。">
-<meta name="keywords" content="Log4j">
+<meta name="description" content="定时任务，在日常开发中是经常用到的，在分布式环境中，定时任务的执行往往需要控制多节点同时执行的问题，比如可以借助Quartz，或者分布式锁，本文提供另一种解决方式，也是借助Redis。">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Log4j的debug日志引起的线上故障">
-<meta property="og:url" content="http://www.gaowm.com/2017/12/22/Log4j的debug日志引起的线上故障/index.html">
+<meta property="og:title" content="redis解决定时任务在分布式环境单节点执行">
+<meta property="og:url" content="http://www.gaowm.com/2017/12/24/Redis解决定时任务在分布式环境单节点执行/index.html">
 <meta property="og:site_name" content="小鱼的博客">
-<meta property="og:description" content="前天下午，运维突然在微信群里说系统流量下跌了，报警邮件也马上来了，都是api接口的time out，查看各种监控工具，zabbix，oneapm，es集群，除了发现流量有下跌，没有别的异常情况。">
+<meta property="og:description" content="定时任务，在日常开发中是经常用到的，在分布式环境中，定时任务的执行往往需要控制多节点同时执行的问题，比如可以借助Quartz，或者分布式锁，本文提供另一种解决方式，也是借助Redis。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-22T14:49:27.057Z">
+<meta property="og:updated_time" content="2017-12-24T11:39:27.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Log4j的debug日志引起的线上故障">
-<meta name="twitter:description" content="前天下午，运维突然在微信群里说系统流量下跌了，报警邮件也马上来了，都是api接口的time out，查看各种监控工具，zabbix，oneapm，es集群，除了发现流量有下跌，没有别的异常情况。">
+<meta name="twitter:title" content="redis解决定时任务在分布式环境单节点执行">
+<meta name="twitter:description" content="定时任务，在日常开发中是经常用到的，在分布式环境中，定时任务的执行往往需要控制多节点同时执行的问题，比如可以借助Quartz，或者分布式锁，本文提供另一种解决方式，也是借助Redis。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.gaowm.com/2017/12/22/Log4j的debug日志引起的线上故障/"/>
+  <link rel="canonical" href="http://www.gaowm.com/2017/12/24/Redis解决定时任务在分布式环境单节点执行/"/>
 
 
 
 
 
-  <title>Log4j的debug日志引起的线上故障 | 小鱼的博客</title>
+  <title>redis解决定时任务在分布式环境单节点执行 | 小鱼的博客</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gaowm.com/2017/12/22/Log4j的debug日志引起的线上故障/">
+    <link itemprop="mainEntityOfPage" href="http://www.gaowm.com/2017/12/24/Redis解决定时任务在分布式环境单节点执行/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小鱼">
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Log4j的debug日志引起的线上故障</h2>
+          <h2 class="post-title" itemprop="name headline">redis解决定时任务在分布式环境单节点执行</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T21:41:19+08:00">
-                2017-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T19:02:21+08:00">
+                2017-12-24
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/故障分析/" itemprop="url" rel="index">
-                    <span itemprop="name">故障分析</span>
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
                   </a>
                 </span>
 
@@ -392,25 +392,18 @@
 
       
         <blockquote>
-<p>前天下午，运维突然在微信群里说系统流量下跌了，报警邮件也马上来了，都是api接口的time out，查看各种监控工具，zabbix，oneapm，es集群，除了发现流量有下跌，没有别的异常情况。<br><a id="more"></a></p>
+<p>定时任务，在日常开发中是经常用到的，在分布式环境中，定时任务的执行往往需要控制多节点同时执行的问题，比如可以借助Quartz，或者分布式锁，本文提供另一种解决方式，也是借助Redis。<br><a id="more"></a></p>
 </blockquote>
-<h2 id="错误现象"><a href="#错误现象" class="headerlink" title="错误现象"></a>错误现象</h2><ol>
-<li>入口流量没有明显增加<br>查看了流量监控，入口流量并没有出现爆发式的增长，很平稳，毕竟我们的流量高峰是在上午，下午3点很难出现高峰</li>
-<li>内存、CPU没有明显波动<br>查看系统的运行状态，内存、CPU都没有出现大的波动，说明并没有出现大的计算任务，如果有计算型的任务，会消耗大量的内存和CPU资源</li>
-<li>线程数上升迅猛<br>看监控，配置的Tomcat的线程池满了，直接导致了系统的请求超时。<br>[图片]</li>
-</ol>
-<h2 id="异常原因分析"><a href="#异常原因分析" class="headerlink" title="异常原因分析"></a>异常原因分析</h2><blockquote>
-<p>既然已经确认是由于线程池的堆积，造成系统的调用超时，那么为什么会突然之间线程池暴涨呢？<br>原因竟然是由于一个同事开启了线上的debug日志跟踪一个问题，持续时间大概20分钟，那么问题来了，log4j开启debug日志，为什么会导致线程池暴涨，造成系统崩溃呢？</p>
-<p>由于log4j同步打日志，当debug日志过多时，频繁的写磁盘文件，api请求的耗时就会增加，那么该api占用的线程的时间就会变长，当占用时间过长，导致线程池不够时，就会出现等待的情况，持续时间一长，等待的线程越来越多，那么就会出现time out了</p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><blockquote>
+<p>在Redis中，提供了自增和增减的相关命令，来保证计数的原子性</p>
 </blockquote>
-<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><ol>
-<li>规范日志的打印<br>日志打印不是越多越好，其实只要关键位置的日志往往就可以，比如方法的入口和出口，逻辑的分叉，try/catch的异常日志</li>
-<li>异常信息的拼装<br>往往debug的时候，打印日志都是很详细的，比如某个对象的完整信息，Http的完整响应等，这些信息都是比较大的，这时候如果用log.debug(Json.toJSONString(user));也许你觉得这么写也没有什么问题啊，其实不然，虽然如果你设置info级别，这个debug日志是不会打印，但是它会执行Json的转换，这其实也是损耗性能的，系统的性能往往就是细节地方不注意，累计多了，就会出现瓶颈。<br>这时，可以使用级别判断来解决这个问题<blockquote>
-<p>if(log.isDebugEnable) {<br>　　LOG.debug(“params = {}”, JSON.toJSONString(user));<br>　}</p>
+<p><strong>incr</strong> 递增1并返回递增后的结果；<br><strong>incrby</strong> 根据指定值做递增或递减操作并返回递增或递减后的结果(incrby递增或递减取决于传入值的正负)<br><strong>decr</strong> 递减1并返回递减后的结果；<br><strong>decrby</strong> 根据指定值做递增或递减操作并返回递增或递减后的结果(decrby递增或递减取决于传入值的正负)</p>
+<p>了解了上面几个命令之后，在来说通过计数器来控制并发执行，应该就很容易理解了<br>直接上代码吧：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> jobKeyValue = redisKeyValueResolver.increment(ExdataConstants.JOB_KEY);</span><br><span class="line">LOGGER.debug(<span class="string">"jobKeyIncrementAfterValue:&#123;&#125;"</span>, jobKeyValue);</span><br><span class="line">    <span class="keyword">if</span> (jobKeyValue == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">//一秒失效</span></span><br><span class="line">        redisKeyValueResolver.expireKey(ExdataConstants.JOB_KEY, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//业务逻辑。。。</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面一段代码，首先定义一个key，当定时任务触发时，多个节点同时执行incr自增操作,第一个执行自增的节点的值就是1，其他的节点就是2、3、4…根据自增后的值来控制定时任务的执行，也就可以有效的控制只执行一次了。</p>
+<blockquote>
+<p>当然还是需要注意，一定要在if语句块最前面执行expire操作，因为执行业务逻辑需要时间，更有可能出现异常，所以在最前面设置过期时间，保证了下次定时任务执行时，key已失效。</p>
 </blockquote>
-</li>
-<li>可以采用logback、log4j2来替换log4j。<br>log4j2已经发行了稳定版本，logback是基于slf4j的门面实现，性能都比log4j高不少</li>
-</ol>
+<p>不需要使用较重的分布式锁，巧妙的运用了Redis的原子操作，这样是的实现方式是不是更简单呢?</p>
 
       
     </div>
@@ -428,7 +421,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Log4j/" rel="tag"># Log4j</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -441,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/05/Centos7安装Docker/" rel="next" title="Centos7安装Docker">
-                <i class="fa fa-chevron-left"></i> Centos7安装Docker
+              <a href="/2017/12/22/Log4j的debug日志引起的线上故障/" rel="next" title="Log4j的debug日志引起的线上故障">
+                <i class="fa fa-chevron-left"></i> Log4j的debug日志引起的线上故障
               </a>
             
           </div>
@@ -450,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/24/Redis解决定时任务在分布式环境单节点执行/" rel="prev" title="redis解决定时任务在分布式环境单节点执行">
-                redis解决定时任务在分布式环境单节点执行 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误现象"><span class="nav-number">1.</span> <span class="nav-text">错误现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常原因分析"><span class="nav-number">2.</span> <span class="nav-text">异常原因分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决"><span class="nav-number">3.</span> <span class="nav-text">如何解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">1.</span> <span class="nav-text">实现方式</span></a></li></ol></div>
             
 
           </div>

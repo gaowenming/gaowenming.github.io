@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[redis解决定时任务在分布式环境单节点执行]]></title>
+    <url>%2F2017%2F12%2F24%2FRedis%E8%A7%A3%E5%86%B3%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%9C%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E5%8D%95%E8%8A%82%E7%82%B9%E6%89%A7%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[定时任务，在日常开发中是经常用到的，在分布式环境中，定时任务的执行往往需要控制多节点同时执行的问题，比如可以借助Quartz，或者分布式锁，本文提供另一种解决方式，也是借助Redis。 实现方式 在Redis中，提供了自增和增减的相关命令，来保证计数的原子性 incr 递增1并返回递增后的结果；incrby 根据指定值做递增或递减操作并返回递增或递减后的结果(incrby递增或递减取决于传入值的正负)decr 递减1并返回递减后的结果；decrby 根据指定值做递增或递减操作并返回递增或递减后的结果(decrby递增或递减取决于传入值的正负) 了解了上面几个命令之后，在来说通过计数器来控制并发执行，应该就很容易理解了直接上代码吧：1234567long jobKeyValue = redisKeyValueResolver.increment(ExdataConstants.JOB_KEY);LOGGER.debug("jobKeyIncrementAfterValue:&#123;&#125;", jobKeyValue); if (jobKeyValue == 1) &#123; //一秒失效 redisKeyValueResolver.expireKey(ExdataConstants.JOB_KEY, 1); //业务逻辑。。。 &#125; 上面一段代码，首先定义一个key，当定时任务触发时，多个节点同时执行incr自增操作,第一个执行自增的节点的值就是1，其他的节点就是2、3、4…根据自增后的值来控制定时任务的执行，也就可以有效的控制只执行一次了。 当然还是需要注意，一定要在if语句块最前面执行expire操作，因为执行业务逻辑需要时间，更有可能出现异常，所以在最前面设置过期时间，保证了下次定时任务执行时，key已失效。 不需要使用较重的分布式锁，巧妙的运用了Redis的原子操作，这样是的实现方式是不是更简单呢?]]></content>
+      <categories>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Log4j的debug日志引起的线上故障]]></title>
     <url>%2F2017%2F12%2F22%2FLog4j%E7%9A%84debug%E6%97%A5%E5%BF%97%E5%BC%95%E8%B5%B7%E7%9A%84%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C%2F</url>
     <content type="text"><![CDATA[前天下午，运维突然在微信群里说系统流量下跌了，报警邮件也马上来了，都是api接口的time out，查看各种监控工具，zabbix，oneapm，es集群，除了发现流量有下跌，没有别的异常情况。 错误现象 入口流量没有明显增加查看了流量监控，入口流量并没有出现爆发式的增长，很平稳，毕竟我们的流量高峰是在上午，下午3点很难出现高峰 内存、CPU没有明显波动查看系统的运行状态，内存、CPU都没有出现大的波动，说明并没有出现大的计算任务，如果有计算型的任务，会消耗大量的内存和CPU资源 线程数上升迅猛看监控，配置的Tomcat的线程池满了，直接导致了系统的请求超时。[图片] 异常原因分析 既然已经确认是由于线程池的堆积，造成系统的调用超时，那么为什么会突然之间线程池暴涨呢？原因竟然是由于一个同事开启了线上的debug日志跟踪一个问题，持续时间大概20分钟，那么问题来了，log4j开启debug日志，为什么会导致线程池暴涨，造成系统崩溃呢？ 由于log4j同步打日志，当debug日志过多时，频繁的写磁盘文件，api请求的耗时就会增加，那么该api占用的线程的时间就会变长，当占用时间过长，导致线程池不够时，就会出现等待的情况，持续时间一长，等待的线程越来越多，那么就会出现time out了 如何解决 规范日志的打印日志打印不是越多越好，其实只要关键位置的日志往往就可以，比如方法的入口和出口，逻辑的分叉，try/catch的异常日志 异常信息的拼装往往debug的时候，打印日志都是很详细的，比如某个对象的完整信息，Http的完整响应等，这些信息都是比较大的，这时候如果用log.debug(Json.toJSONString(user));也许你觉得这么写也没有什么问题啊，其实不然，虽然如果你设置info级别，这个debug日志是不会打印，但是它会执行Json的转换，这其实也是损耗性能的，系统的性能往往就是细节地方不注意，累计多了，就会出现瓶颈。这时，可以使用级别判断来解决这个问题 if(log.isDebugEnable) { LOG.debug(“params = {}”, JSON.toJSONString(user)); } 可以采用logback、log4j2来替换log4j。log4j2已经发行了稳定版本，logback是基于slf4j的门面实现，性能都比log4j高不少]]></content>
