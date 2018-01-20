@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java, 码农, 小鱼的博客" />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="小鱼的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小鱼的博客">
-<meta property="og:url" content="http://www.gaowm.com/categories/Docker/index.html">
+<meta name="description" content="在实际项目中，经常需要用到异步处理，大部分情况我们都会使用定义一个线程（Thread），通过ExecutorService来调度，这样实现没有任何问题，那么有没有更简单方便的实现呢？Spring中提供了@Async注解，来简化异步操作。">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot中使用@Async实现异步调用">
+<meta property="og:url" content="http://www.gaowm.com/2018/01/20/SpringBoot中使用@Async实现异步调用/index.html">
 <meta property="og:site_name" content="小鱼的博客">
-<meta property="og:description" content="小鱼的博客">
+<meta property="og:description" content="在实际项目中，经常需要用到异步处理，大部分情况我们都会使用定义一个线程（Thread），通过ExecutorService来调度，这样实现没有任何问题，那么有没有更简单方便的实现呢？Spring中提供了@Async注解，来简化异步操作。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-20T03:05:01.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鱼的博客">
-<meta name="twitter:description" content="小鱼的博客">
+<meta name="twitter:title" content="SpringBoot中使用@Async实现异步调用">
+<meta name="twitter:description" content="在实际项目中，经常需要用到异步处理，大部分情况我们都会使用定义一个线程（Thread），通过ExecutorService来调度，这样实现没有任何问题，那么有没有更简单方便的实现呢？Spring中提供了@Async注解，来简化异步操作。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.gaowm.com/categories/Docker/"/>
+  <link rel="canonical" href="http://www.gaowm.com/2018/01/20/SpringBoot中使用@Async实现异步调用/"/>
 
 
 
 
 
-  <title>分类: Docker | 小鱼的博客</title>
+  <title>SpringBoot中使用@Async实现异步调用 | 小鱼的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,55 +283,187 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Docker<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.gaowm.com/2018/01/20/SpringBoot中使用@Async实现异步调用/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鱼">
+      <meta itemprop="description" content="少壮不努力，长大写代码！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鱼的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/05/Centos7安装Docker/" itemprop="url">
-              
-                <span itemprop="name">Centos7安装Docker</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">SpringBoot中使用@Async实现异步调用</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-05T15:56:59+08:00"
-              content="2017-12-05" >
-          12-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T10:59:44+08:00">
+                2018-01-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在实际项目中，经常需要用到异步处理，大部分情况我们都会使用定义一个线程（Thread），通过ExecutorService来调度，这样实现没有任何问题，那么有没有更简单方便的实现呢？Spring中提供了@Async注解，来简化异步操作。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="Async的定义"><a href="#Async的定义" class="headerlink" title="@Async的定义"></a>@Async的定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Async &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Async的Target包含Method和Type，也就是可以定义在类或者方法上，那么@Async的工作原理是什么样的呢?</p>
+<blockquote>
+<p>spring在扫描bean的时候会扫描方法上是否包含@async的注解，如果包含的，spring会为这个bean动态的生成一个子类，我们称之为代理类,代理类继承我们所写的bean的，然后把代理类注入进来，那此时，在执行此方法的时候，会到代理类中，代理类判断了此方法需要异步执行，就不会调用父类<br>(我们原本写的bean)的对应方法。spring自己维护了一个队列，他会把需要执行的方法，放入队列中，等待线程池去读取这个队列，完成方法的执行，<br>从而完成了异步的功能。我们可以关注到再配置task的时候，是有参数让我们配置线程池的数量的。因为这种实现方法，<strong><em>所以在同一个类中的方法调用，添加@async注解是失效的！，原因是当你在同一个类中的时候，方法调用是在类体内执行的，spring无法截获这个方法调用</em></strong>。</p>
+</blockquote>
+<h2 id="Async的使用"><a href="#Async的使用" class="headerlink" title="@Async的使用"></a>@Async的使用</h2><p> 使用@Async很简单，只需要在方法上加上注解即可，方法可以定义2种，有返回值和没有返回值得，有的时候我们还是希望获取该异步任务的返回值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.Async;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.AsyncResult;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基于Async注解的异步任务，需要开启<span class="doctag">@EnableAsync</span></span></span><br><span class="line"><span class="comment"> * Author: gaowenming</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:49 2017/7/2.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncTask</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Random random = <span class="keyword">new</span> Random();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Async</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Future&lt;String&gt; <span class="title">task1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开始做任务一"</span>);</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        Thread.sleep(random.nextInt(<span class="number">10000</span>));</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"完成任务一，耗时："</span> + (end - start) + <span class="string">"毫秒"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AsyncResult&lt;&gt;(<span class="string">"任务一完成"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Async</span>(<span class="string">"smartExecutor"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">taskAsync1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            log.info(<span class="string">"##########################"</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的实例中，我们定义了2个方法，在执行异步操作时，我们还可以指定线程池，@Async(“smartExecutor”)，smartExecutor是我们定义的线程池<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义线程池</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAsync</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadExecutorConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Set the ThreadPoolExecutor's core pool size.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> corePoolSize = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Set the ThreadPoolExecutor's maximum pool size.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> maxPoolSize = <span class="number">200</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Set the capacity for the ThreadPoolExecutor's BlockingQueue.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> queueCapacity = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Executor <span class="title">smartExecutor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">        executor.setCorePoolSize(corePoolSize);</span><br><span class="line">        executor.setMaxPoolSize(maxPoolSize);</span><br><span class="line">        executor.setQueueCapacity(queueCapacity);</span><br><span class="line">        executor.setThreadNamePrefix(<span class="string">"smartExecutor-"</span>);</span><br><span class="line">        executor.initialize();</span><br><span class="line">        <span class="keyword">return</span> executor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里需要注意的是，在SpringBoot中，要启用@Async注解，还需要在config上加上@EnableAsync注解，表示启用@Async注解</p>
+<p>线程池和异步方法定义好之后，接下来就是调用，我们可以和普通方法一样<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"api/task/"</span>)</span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Api</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AsyncTask asyncTask;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/async"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> BaseJsonResult <span class="title">task1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        log.info(<span class="string">"test async................"</span>);</span><br><span class="line">        asyncTask.task1();</span><br><span class="line">        asyncTask.taskAsync1();</span><br><span class="line">        <span class="keyword">return</span> successNullDataResult();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>是不是很方便，在需要异步操作的时候，终于不用再自己创建Thread了，而且也可以在方法上加上参数，和普通方法一样，很大的增加了代码的可读性。</p>
+<h2 id="注意的问题"><a href="#注意的问题" class="headerlink" title="注意的问题 "></a>注意的问题 </h2><p> 在实际的开发中，其实我们可以把需要异步操作的方法定义公共的类中，也可以给不同的操作指定不同的线程池，那么如果在异步操作中发生异常该如何处理呢？Spring提供了AsyncUncaughtExceptionHandler这个Handler来处理，我们可以在发生异常的时候，根据不同操作的定义不同的处理机制。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/19/聊聊Dubbo接口授权/" rel="next" title="聊聊Dubbo接口授权">
+                <i class="fa fa-chevron-left"></i> 聊聊Dubbo接口授权
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -337,6 +471,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -357,8 +495,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -438,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Async的定义"><span class="nav-number">1.</span> <span class="nav-text">@Async的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async的使用"><span class="nav-number">2.</span> <span class="nav-text">@Async的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意的问题"><span class="nav-number">3.</span> <span class="nav-text">注意的问题 </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -590,6 +753,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
