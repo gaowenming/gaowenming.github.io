@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java, 码农, 小鱼的博客" />
+  <meta name="keywords" content="Properties," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="小鱼的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小鱼的博客">
-<meta property="og:url" content="http://www.gaowm.com/tags/Docker/index.html">
+<meta name="description" content="项目中经常会把一些公共的配置放在Properties文件中，然后通过一些方法读取Properties文件的属性名和对应的值，通常都是解析成Map格式，在Spring Boot中，还提供了另一种更灵活的方式：自定义类，和Properties文件一一对应。">
+<meta name="keywords" content="Properties">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot中Properties文件的解析">
+<meta property="og:url" content="http://www.gaowm.com/2018/01/21/Spring-Boot中Properties文件的解析/index.html">
 <meta property="og:site_name" content="小鱼的博客">
-<meta property="og:description" content="小鱼的博客">
+<meta property="og:description" content="项目中经常会把一些公共的配置放在Properties文件中，然后通过一些方法读取Properties文件的属性名和对应的值，通常都是解析成Map格式，在Spring Boot中，还提供了另一种更灵活的方式：自定义类，和Properties文件一一对应。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-21T03:22:51.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鱼的博客">
-<meta name="twitter:description" content="小鱼的博客">
+<meta name="twitter:title" content="Spring Boot中Properties文件的解析">
+<meta name="twitter:description" content="项目中经常会把一些公共的配置放在Properties文件中，然后通过一些方法读取Properties文件的属性名和对应的值，通常都是解析成Map格式，在Spring Boot中，还提供了另一种更灵活的方式：自定义类，和Properties文件一一对应。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.gaowm.com/tags/Docker/"/>
+  <link rel="canonical" href="http://www.gaowm.com/2018/01/21/Spring-Boot中Properties文件的解析/"/>
 
 
 
 
 
-  <title>标签: Docker | 小鱼的博客</title>
+  <title>Spring Boot中Properties文件的解析 | 小鱼的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,54 +283,184 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Docker<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.gaowm.com/2018/01/21/Spring-Boot中Properties文件的解析/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鱼">
+      <meta itemprop="description" content="少壮不努力，长大写代码！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鱼的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/05/Centos7安装Docker/" itemprop="url">
-              
-                <span itemprop="name">Centos7安装Docker</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Spring Boot中Properties文件的解析</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-05T15:56:59+08:00"
-              content="2017-12-05" >
-          12-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T11:20:21+08:00">
+                2018-01-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>项目中经常会把一些公共的配置放在Properties文件中，然后通过一些方法读取Properties文件的属性名和对应的值，通常都是解析成Map<k,v>格式，在Spring Boot中，还提供了另一种更灵活的方式：自定义类，和Properties文件一一对应。<br><a id="more"></a></k,v></p>
+</blockquote>
+<h2 id="新建Properties文件"><a href="#新建Properties文件" class="headerlink" title="新建Properties文件"></a>新建Properties文件</h2><p>新建一个文件，存放一些公共的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#1、组件集成之外的自定义配置，最好和部署环境无关的，和环境相关的，还是配置在application文件中</span><br><span class="line">#2、所有的key都加上smart前缀,防止和application中的key冲突</span><br><span class="line">#3、当前key/value的解析在SmartConfigProperties文件中，新增的key需要再类中声明即可</span><br><span class="line">smart.username=gaowenming</span><br><span class="line">smart.secretKey=123456789</span><br><span class="line">smart.id=1000</span><br><span class="line">smart.names=zhangsan,lisi</span><br><span class="line">smart.weight=60.5</span><br></pre></td></tr></table></figure></p>
+<p>在上面的文件中，我们都加上smart前缀，这样更好的避免和别的配置重名</p>
+<h2 id="定义配置的公共类"><a href="#定义配置的公共类" class="headerlink" title="定义配置的公共类"></a>定义配置的公共类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.PropertySource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 业务配置 Author: gaowenming Description: Date: Created in 11:59 2017/7/15.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:config.properties"</span>)<span class="comment">//注意路径</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"smart"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmartConfigProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String secretKey;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String[] names;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> weight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring Boot中，可以支持Properties文件到类的类型转换，常规的类型和数组，List都支持，这样避免了我们自己解析后再强制类型转换，实现方式更优雅。</p>
+<h2 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h2><p>这种方式很好的把所有的配置都集中到一起，如果配置太多，我们也可以分多个类，避免一个类中太臃肿。使用起来也是很方便，直接把配置类注入到使用的地方即可<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"api/test/"</span>)</span><br><span class="line"><span class="meta">@Api</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> SmartConfigProperties smartConfigProperties;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"getConfigValue"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> BaseJsonResult <span class="title">getConfigValue</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String[] names = smartConfigProperties.getNames();</span><br><span class="line">        <span class="keyword">for</span> (String str : names) &#123;</span><br><span class="line">            log.info(str);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> id = smartConfigProperties.getId();</span><br><span class="line">        String username = smartConfigProperties.getUsername();</span><br><span class="line">        <span class="keyword">float</span> weight = smartConfigProperties.getWeight();</span><br><span class="line">        log.info(<span class="string">"names:&#123;&#125;,id:&#123;&#125;,username:&#123;&#125;,weight:&#123;&#125;"</span>, names, id, username, weight);</span><br><span class="line">        <span class="keyword">return</span> successNullDataResult();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>使用这种方式解析Properties文件,首先不需要我们自己在强制转换数据类型，也使配置都集中管理，确实是给我们的代码带来更多的可读性，虽然功能简单，但是作用却很大。</p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Properties/" rel="tag"># Properties</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/Spring-Boot中使用-Scheduled执行定时任务/" rel="next" title="Spring Boot中使用@Scheduled执行定时任务">
+                <i class="fa fa-chevron-left"></i> Spring Boot中使用@Scheduled执行定时任务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +468,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -356,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -437,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建Properties文件"><span class="nav-number">1.</span> <span class="nav-text">新建Properties文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义配置的公共类"><span class="nav-number">2.</span> <span class="nav-text">定义配置的公共类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用配置"><span class="nav-number">3.</span> <span class="nav-text">使用配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -589,6 +750,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
