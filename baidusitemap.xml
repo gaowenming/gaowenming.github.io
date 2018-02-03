@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>http://www.gaowm.com/2018/01/27/RabbitMQ%E7%9A%84%E6%B6%88%E8%B4%B9%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2018-01-27T12:49:07.941Z</lastmod>
+    <loc>http://www.gaowm.com/2018/01/24/%E8%81%8A%E8%81%8A%E6%88%91%E4%BB%AC%E7%9A%84%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2018-02-03T12:46:24.745Z</lastmod>
     <data>
         <display>
-        <title>RabbitMQ的消费延迟问题</title>
-        <pubTime>2018-01-27T12:47:28.000Z</pubTime>
+        <title>聊聊我们的灰度发布方案</title>
+        <pubTime>2018-01-24T14:17:14.000Z</pubTime>
         
-        <tag>RabbitMQ</tag>
+        <tag>灰度发布</tag>
          
          
            
@@ -24,14 +24,14 @@
 
     
   <url>
-    <loc>http://www.gaowm.com/2018/01/24/%E8%81%8A%E8%81%8A%E6%88%91%E4%BB%AC%E7%9A%84%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-01-24T14:18:20.650Z</lastmod>
+    <loc>http://www.gaowm.com/2018/01/27/RabbitMQ%E7%9A%84%E6%B6%88%E8%B4%B9%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2018-01-27T12:49:07.941Z</lastmod>
     <data>
         <display>
-        <title>聊聊我们的灰度发布方案</title>
-        <pubTime>2018-01-24T14:17:14.000Z</pubTime>
+        <title>RabbitMQ的消费延迟问题</title>
+        <pubTime>2018-01-27T12:47:28.000Z</pubTime>
         
-        <tag>灰度发布</tag>
+        <tag>RabbitMQ</tag>
          
          
            

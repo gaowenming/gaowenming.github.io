@@ -88,7 +88,7 @@
 <meta property="og:description" content="在项目快速迭代的过程中，系统上线是我们日常非常频繁的工作，稳定可靠的部署方案就非常重要了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.gaowm.com/images/publish.png">
-<meta property="og:updated_time" content="2018-01-24T14:18:20.650Z">
+<meta property="og:updated_time" content="2018-02-03T12:46:24.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊聊我们的灰度发布方案">
 <meta name="twitter:description" content="在项目快速迭代的过程中，系统上线是我们日常非常频繁的工作，稳定可靠的部署方案就非常重要了。">
@@ -402,7 +402,7 @@
 </ul>
 <p>蓝绿部署是不停老版本，部署新版本然后进行测试，确认OK，将流量切到新版本，然后老版本同时也升级到新版本。</p>
 <ul>
-<li>滚蛋部署</li>
+<li>滚动部署</li>
 </ul>
 <p>滚动发布：一般是取出一个或者多个服务器停止服务，执行更新，并重新将其投入使用。周而复始，直到集群中所有的实例都更新成新版本。</p>
 <ul>
@@ -410,7 +410,7 @@
 </ul>
 <p>灰度发布是指在黑与白之间，能够平滑过渡的一种发布方式。ABtest就是一种灰度发布方式，让一部分用户继续用A，一部分用户开始用B，如果用户对B没有什么反对意见，那么逐步扩大范围，把所有用户都迁移到B上面来。灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。</p>
 <h2 id="如何选择适合自己的方案"><a href="#如何选择适合自己的方案" class="headerlink" title="如何选择适合自己的方案"></a>如何选择适合自己的方案</h2><p>上面几种方案，各有利弊，简单分析下<br>蓝绿部署，占用资源比较多，因为需要2套完整的部署环境，但是有点也明显，2套环境完全隔离，验证完直接切换就行<br>滚动部署，直接更新线上的节点验证，风险比较大，而且验证也不方便<br>灰度部署，这种方式应该算是比较好的，我们可以把某个节点专门设为灰度节点，所有的上线前的验证都打到灰度节点，验证完之后，就可以全量更新。</p>
-<h2 id="我们的灰度方案"><a href="#我们的灰度方案" class="headerlink" title="我们的灰度方案"></a>我们的灰度方案</h2><p>经过一段时间的探索，我们也慢慢的完善了我们自己的灰度发布方案，总体的设计思路如下<br>1、数据存储，灰度节点和线上节点共用一套，包括数据库MySql，Redis、Elasticsearch<br>2、中间件单独一套，中间件包括Zk，MQ</p>
+<h2 id="我们的灰度方案"><a href="#我们的灰度方案" class="headerlink" title="我们的灰度方案"></a>我们的灰度方案</h2><p>经过一段时间的探索，我们也慢慢的完善了我们自己的灰度发布方案，总体的设计思路如下<br>1、数据存储，灰度节点和线上节点共用一套，包括数据库MySql，Redis、Elasticsearch<br>2、中间件单独一套，中间件包括ZK，MQ</p>
 <blockquote>
 <p>为什么要这么做呢？</p>
 </blockquote>
