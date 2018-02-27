@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小鱼的博客">
 <meta property="og:description" content="本文主要是Jest Api的实例介绍，包括index的创建，mapping的设置，基本的条件搜索等。本文中的实现是基于SpringBoot，而且SpringBoot中已经内置了Jest的starter，所以配置起来还是很简单的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T08:09:24.182Z">
+<meta property="og:updated_time" content="2018-02-27T08:15:10.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch(六) 使用Jest实现基本的索引操作和搜索">
 <meta name="twitter:description" content="本文主要是Jest Api的实例介绍，包括index的创建，mapping的设置，基本的条件搜索等。本文中的实现是基于SpringBoot，而且SpringBoot中已经内置了Jest的starter，所以配置起来还是很简单的。">
@@ -419,7 +419,7 @@
 <p>Blog的实现类也很简单，继承AbstractJestDataBaseService抽象类，只需要实现未实现的接口即可。上面的实现中，我们对设置Mapping的方法进行了实现，对每个字段的mapping都进行设置。</p>
 </blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>Elasticsearch的Jest Api进行简单的封装，把基本的，通用的操作封装到一起实现，比如我们Elasticsearch中存放Blog和User，都有index的创建，删除等基本操作，抽象出来，对代码的整洁性，可维护性也是很有好处的，我们在Elasticsearch中增加一个新的index，只需要关注mapping和search方面的接口，其他的操作都抽象成通用的方法，也很大的节省了重复的工作。</p>
+<p>Elasticsearch的Jest Api进行简单的封装，把基本的，通用的操作封装到一起实现，比如我们Elasticsearch中存放Blog和User，都有index的创建，删除等基本操作，抽象出来，对代码的整洁性，可维护性也是很有好处的，我们在Elasticsearch中增加一个新的index，只需要关注mapping和search方面的接口，其他的操作都抽象成通用的方法，也很大的节省了重复的工作。<br>完整的代码地址：<a href="https://github.com/gaowenming/spring-boot-elasticsearch" target="_blank" rel="noopener">https://github.com/gaowenming/spring-boot-elasticsearch</a> </p>
 </blockquote>
 
       
